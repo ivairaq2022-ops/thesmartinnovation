@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { ShieldCheck, Cpu, Terminal, Zap, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
+import { ShieldCheck, Cpu, Terminal, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 
-const Pricing = () => {
+const Pricing = ({ navigateToContact }) => {
   const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' or 'yearly'
   const [nodeCount, setNodeCount] = useState(5);
   const [activeFaq, setActiveFaq] = useState(null);
@@ -209,16 +209,7 @@ const Pricing = () => {
               <button
                 className={`btn btn-sm ${plan.featured ? 'btn-primary' : 'btn-outline'}`}
                 style={{ marginTop: 'auto' }}
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) {
-                    const msgField = document.getElementById('message');
-                    if (msgField) {
-                      msgField.value = `I would like to activate license plan: "${plan.name}" (${billingCycle === 'monthly' ? 'monthly' : 'yearly'} cycle). Please initiate client onboarding protocols.`;
-                    }
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                onClick={() => navigateToContact(`I would like to discuss the ${plan.name} plan (${billingCycle === 'monthly' ? 'monthly' : 'yearly'} billing). Please send me more details.`)}
               >
                 {plan.price === 'CUSTOM' ? 'REQUEST COMMS LINK' : 'ACTIVATE NODE'}
               </button>
@@ -322,16 +313,7 @@ const Pricing = () => {
 
               <button
                 className="btn btn-outline btn-sm btn-full"
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) {
-                    const msgField = document.getElementById('message');
-                    if (msgField) {
-                      msgField.value = `Hello! We are looking to allocate a cluster of ${nodeCount} active security nodes. Please provide a detailed quote and architecture proposal.`;
-                    }
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                onClick={() => navigateToContact(`Hello! We are looking to allocate ${nodeCount} active security nodes. Please provide a detailed quote and architecture proposal.`)}
               >
                 PROVISION NODE CLUSTER
               </button>
@@ -386,7 +368,6 @@ const Pricing = () => {
                     <div style={{
                       padding: '0 24px 20px',
                       color: 'var(--text-muted)',
-                      fontSize: '14px',
                       lineHeight: '1.6',
                       borderTop: '1px solid rgba(0, 240, 255, 0.1)',
                       paddingTop: '16px',
