@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Terminal, CheckCircle2, ShieldAlert } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
-const Contact = () => {
+const CONTACT_EMAIL = 'info@thesmartinnivation.com';
+
+const Contact = ({ initialMessage }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: 'it',
-    message: ''
+    message: initialMessage || ''
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [timestamp, setTimestamp] = useState('');
+  const [emailOpened, setEmailOpened] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,10 +22,10 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
-      setTimestamp(new Date().toISOString());
-      setIsSubmitted(true);
-    }
+    const subject = `${getSubjectText(formData.subject)} inquiry — The Smart Innovation`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    window.location.assign(`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    setEmailOpened(true);
   };
 
   const handleReset = () => {
@@ -34,7 +35,7 @@ const Contact = () => {
       subject: 'it',
       message: ''
     });
-    setIsSubmitted(false);
+    setEmailOpened(false);
   };
 
   const getSubjectText = (val) => {
@@ -56,59 +57,8 @@ const Contact = () => {
         </div>
 
         <div className="contact-grid">
-          {isSubmitted ? (
-            /* Interactive success terminal console */
-            <div className="terminal-success">
-              <div className="terminal-header">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Terminal size={14} />
-                  <span>TRANSMISSION_STATUS: SUCCESS</span>
-                </div>
-                <span>NODE_REF: {Math.floor(Math.random() * 89999 + 10000)}</span>
-              </div>
-              
-              <div className="terminal-line" style={{ color: 'var(--color-cyan)', fontWeight: 'bold' }}>
-                <span className="terminal-prompt">&gt;&gt;</span>
-                <span>DATA PACKAGE SENT SUCCESSFULLY</span>
-              </div>
-
-              <div className="terminal-line">
-                <span className="terminal-prompt">&gt;</span>
-                <span>TIMESTAMP: {timestamp}</span>
-              </div>
-
-              <div className="terminal-line">
-                <span className="terminal-prompt">&gt;</span>
-                <span>SENDER_ID: {formData.name.toUpperCase().replace(/\s+/g, '_')}</span>
-              </div>
-
-              <div className="terminal-line">
-                <span className="terminal-prompt">&gt;</span>
-                <span>COMMS_CHANNEL: {formData.email}</span>
-              </div>
-
-              <div className="terminal-line">
-                <span className="terminal-prompt">&gt;</span>
-                <span>ROUTING_KEY: {formData.subject.toUpperCase()}</span>
-              </div>
-
-              <div className="terminal-line" style={{ marginTop: '16px', borderTop: '1px dashed rgba(0, 240, 255, 0.1)', paddingTop: '16px' }}>
-                <span className="terminal-prompt">&gt;</span>
-                <span style={{ color: 'var(--text-muted)' }}>
-                  "Thank you, {formData.name}! We received your message regarding {getSubjectText(formData.subject)}. Our system agents will process this packet and establish contact shortly."
-                </span>
-              </div>
-
-              <button
-                className="btn btn-outline btn-sm"
-                onClick={handleReset}
-                style={{ marginTop: '28px' }}
-              >
-                OPEN NEW CHANNEL
-              </button>
-            </div>
-          ) : (
-            /* Contact form */
+          <div>
+            {emailOpened && <p role="status" className="contact-note">Your email app should open with the message ready. Please press Send there to complete your inquiry. If it did not open, email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> directly. <button type="button" onClick={handleReset}>Clear form</button></p>}
             <form className="contact-form" id="contactForm" onSubmit={handleSubmit}>
               <div className="form-row">
                 <label htmlFor="name">Full name</label>
@@ -166,10 +116,10 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="btn btn-primary btn-full">
-                TRANSMIT MESSAGE
+                OPEN EMAIL TO SEND
               </button>
             </form>
-          )}
+          </div>
 
           <div className="contact-info">
             <div className="contact-block">
@@ -177,7 +127,7 @@ const Contact = () => {
                 <Mail size={16} style={{ color: 'var(--color-cyan)' }} />
                 <h3>Email Secure Link</h3>
               </div>
-              <a href="mailto:info@thesmartinnivation.com">info@thesmartinnivation.com</a>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </div>
 
             <div className="contact-block">
