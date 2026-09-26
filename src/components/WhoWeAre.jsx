@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Target, Eye, Activity, Terminal } from 'lucide-react';
+import { useState } from 'react';
+import { Target, Eye, Activity } from 'lucide-react';
 
 const WhoWeAre = () => {
   const [activeConsoleTab, setActiveConsoleTab] = useState('SEC_PROTOCOL');

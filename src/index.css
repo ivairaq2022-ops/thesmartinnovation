@@ -949,6 +949,26 @@ a {
 }
 
 /* Contact Section Grid */
+.contact-note {
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--color-cyan);
+  color: var(--text-muted);
+  background: var(--bg-card);
+  line-height: 1.6;
+}
+
+.contact-note a, .contact-note button {
+  color: var(--color-cyan);
+}
+
+.contact-note button {
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;

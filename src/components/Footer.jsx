@@ -1,6 +1,5 @@
-import React from 'react';
 
-const Footer = ({ setCurrentPage }) => {
+const Footer = ({ setCurrentPage, navigateToContact }) => {
   const currentYear = new Date().getFullYear();
 
   const handleLinkClick = (e, pageId) => {
@@ -36,6 +35,7 @@ const Footer = ({ setCurrentPage }) => {
           <a href="#home" onClick={(e) => handleLinkClick(e, 'home')}>Home</a>
           <a href="#services" onClick={(e) => handleLinkClick(e, 'services')}>Our Services</a>
           <a href="#pricing" onClick={(e) => handleLinkClick(e, 'pricing')}>Pricing Plans</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); navigateToContact(); }}>Contact</a>
         </nav>
 
         <p className="footer-copy">

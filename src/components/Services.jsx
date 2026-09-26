@@ -1,7 +1,6 @@
-import React from 'react';
 import { Monitor, ShieldCheck, Cpu, ArrowRight } from 'lucide-react';
 
-const Services = () => {
+const Services = ({ navigateToContact }) => {
   const services = [
     {
       id: 'it',
@@ -67,7 +66,7 @@ const Services = () => {
                 ))}
               </ul>
 
-              <div style={{
+              <a href="#contact" style={{
                 marginTop: '24px',
                 display: 'flex',
                 alignItems: 'center',
@@ -80,16 +79,11 @@ const Services = () => {
                 transition: 'opacity 0.2s'
               }}
               className="service-link"
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={(e) => { e.preventDefault(); navigateToContact(`I would like to learn more about ${service.title}.`); }}
               >
                 <span>REQUEST DETAILS</span>
                 <ArrowRight size={12} />
-              </div>
+              </a>
             </article>
           ))}
         </div>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Terminal, Shield, Cpu } from 'lucide-react';
 
-const Hero = () => {
+const Hero = ({ setCurrentPage }) => {
   const [typedText, setTypedText] = useState('');
   const fullText = 'IT Solutions · Cybersecurity · Artificial Intelligence';
 
@@ -61,7 +61,7 @@ const Hero = () => {
           <a
             href="#services"
             className="btn btn-primary"
-            onClick={(e) => handleScrollTo(e, 'services')}
+            onClick={(e) => { e.preventDefault(); setCurrentPage('services'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
             Explore Services
           </a>
