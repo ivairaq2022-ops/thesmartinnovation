@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Shield, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Shield } from 'lucide-react';
 
-const Header = ({ currentPage, setCurrentPage }) => {
+const Header = ({ currentPage, setCurrentPage, navigateToContact }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -92,6 +92,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           >
             Pricing
           </a>
+          <a href="#contact" className="nav-link" onClick={(e) => { e.preventDefault(); navigateToContact(); setMobileMenuOpen(false); }}>Contact</a>
         </nav>
       </div>
     </header>
