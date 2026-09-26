@@ -1,14 +1,13 @@
-import React from 'react';
 import Hero from './Hero';
 import WhoWeAre from './WhoWeAre';
 import Contact from './Contact';
 
-const Home = () => {
+const Home = ({ contactMessage, setCurrentPage }) => {
   return (
     <>
-      <Hero />
+      <Hero setCurrentPage={setCurrentPage} />
       <WhoWeAre />
-      <Contact />
+      <Contact key={contactMessage || 'empty'} initialMessage={contactMessage} />
     </>
   );
 };
