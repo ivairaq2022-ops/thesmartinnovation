@@ -68,8 +68,8 @@ const WhoWeAre = () => {
 
             {/* Premium Cyber Capabilities Console */}
             <div style={{
-              background: '#020306',
-              border: '1px solid rgba(0, 240, 255, 0.2)',
+              background: '#0b141b',
+              border: '1px solid rgba(40, 168, 224, 0.2)',
               borderRadius: '4px',
               padding: '20px',
               marginTop: '32px',
@@ -79,7 +79,7 @@ const WhoWeAre = () => {
               <div style={{
                 display: 'flex',
                 gap: '8px',
-                borderBottom: '1px solid rgba(0, 240, 255, 0.1)',
+                borderBottom: '1px solid rgba(40, 168, 224, 0.1)',
                 paddingBottom: '12px',
                 marginBottom: '16px',
                 overflowX: 'auto'
@@ -122,13 +122,13 @@ const WhoWeAre = () => {
                   borderRadius: '3px',
                   fontSize: '11px',
                   color: '#94a3b8',
-                  borderLeft: '2px solid rgba(0, 240, 255, 0.3)',
+                  borderLeft: '2px solid rgba(40, 168, 224, 0.3)',
                   marginBottom: '12px'
                 }}>
                   {consoleContent[activeConsoleTab].desc}
                 </div>
 
-                <div style={{ fontSize: '11px', color: 'rgba(0, 240, 255, 0.7)', lineHeight: '1.5' }}>
+                <div style={{ fontSize: '11px', color: 'rgba(40, 168, 224, 0.7)', lineHeight: '1.5' }}>
                   {consoleContent[activeConsoleTab].logs.map((log, i) => (
                     <div key={i} style={{ display: 'flex', gap: '8px' }}>
                       <span style={{ color: 'rgba(255,255,255,0.2)' }}>[{i}]</span>
