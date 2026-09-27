@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Shield } from 'lucide-react';
 
 const Header = ({ currentPage, setCurrentPage, navigateToContact }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -44,20 +43,6 @@ const Header = ({ currentPage, setCurrentPage, navigateToContact }) => {
           </span>
         </a>
 
-        {/* System Diagnostics panel */}
-        <div className="system-status">
-          <div className="status-indicator">
-            <span className="status-dot"></span>
-            <span>SYS_ONLINE</span>
-          </div>
-          <span>|</span>
-          <div className="status-indicator">
-            <Shield size={12} className="text-glow-cyan" style={{ marginRight: '4px' }} />
-            <span>SEC_LVL_MAX</span>
-          </div>
-          <span>|</span>
-          <span>NET: ENCRYPTED</span>
-        </div>
 
         <button
           className={`nav-toggle ${mobileMenuOpen ? 'open' : ''}`}
@@ -84,13 +69,6 @@ const Header = ({ currentPage, setCurrentPage, navigateToContact }) => {
             onClick={(e) => handleLinkClick(e, 'services')}
           >
             Services
-          </a>
-          <a
-            href="#pricing"
-            className={`nav-link ${currentPage === 'pricing' ? 'active' : ''}`}
-            onClick={(e) => handleLinkClick(e, 'pricing')}
-          >
-            Pricing
           </a>
           <a href="#contact" className="nav-link" onClick={(e) => { e.preventDefault(); navigateToContact(); setMobileMenuOpen(false); }}>Contact</a>
         </nav>
