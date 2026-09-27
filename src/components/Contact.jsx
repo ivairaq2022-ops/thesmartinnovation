@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
-const CONTACT_EMAIL = 'info@thesmartinnivation.com';
+const CONTACT_EMAIL = 'info@thesmartinnovation.com';
 
 const Contact = ({ initialMessage }) => {
   const [formData, setFormData] = useState({
@@ -43,6 +43,11 @@ const Contact = ({ initialMessage }) => {
       case 'it': return 'IT Solutions';
       case 'security': return 'Cybersecurity';
       case 'ai': return 'Artificial Intelligence';
+      case 'gates': return 'Electronic Gates & Access Control';
+      case 'datacenter': return 'Data Centers';
+      case 'cctv': return 'CCTV & Surveillance';
+      case 'infrastructure': return 'IT Infrastructure & Connectivity';
+      case 'software': return 'Software & Oil Field Systems';
       case 'courses': return 'Course enrollment';
       default: return 'General inquiry';
     }
@@ -53,7 +58,7 @@ const Contact = ({ initialMessage }) => {
       <div className="container">
         <div className="section-header">
           <span className="section-label">Contact Us</span>
-          <h2>Let's build something smart together</h2>
+          <h2>Discuss your project with us</h2>
         </div>
 
         <div className="contact-grid">
@@ -95,15 +100,20 @@ const Contact = ({ initialMessage }) => {
                   onChange={handleChange}
                 >
                   <option value="it">IT Solutions</option>
+                  <option value="gates">Electronic Gates & Access Control</option>
+                  <option value="datacenter">Data Centers</option>
+                  <option value="cctv">CCTV & Surveillance</option>
+                  <option value="infrastructure">IT Infrastructure, Fiber & Wireless</option>
                   <option value="security">Cybersecurity</option>
                   <option value="ai">Artificial Intelligence</option>
+                  <option value="software">Software & Oil Field Systems</option>
                   <option value="courses">Course enrollment</option>
                   <option value="general">General inquiry</option>
                 </select>
               </div>
 
               <div className="form-row">
-                <label htmlFor="message">Message Payload</label>
+                <label htmlFor="message">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -116,7 +126,7 @@ const Contact = ({ initialMessage }) => {
               </div>
 
               <button type="submit" className="btn btn-primary btn-full">
-                OPEN EMAIL TO SEND
+                Open email to send
               </button>
             </form>
           </div>
@@ -125,7 +135,7 @@ const Contact = ({ initialMessage }) => {
             <div className="contact-block">
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <Mail size={16} style={{ color: 'var(--color-cyan)' }} />
-                <h3>Email Secure Link</h3>
+                <h3>Email</h3>
               </div>
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </div>
@@ -133,7 +143,7 @@ const Contact = ({ initialMessage }) => {
             <div className="contact-block">
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <Phone size={16} style={{ color: 'var(--color-cyan)' }} />
-                <h3>Secure Phone Line</h3>
+                <h3>Phone</h3>
               </div>
               <a href="tel:+9647860808090">+964 786 080 8090</a>
             </div>
@@ -141,7 +151,7 @@ const Contact = ({ initialMessage }) => {
             <div className="contact-block">
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <MapPin size={16} style={{ color: 'var(--color-cyan)' }} />
-                <h3>Node Coordinates</h3>
+                <h3>Location</h3>
               </div>
               <p>Almansour, Baghdad<br />Iraq</p>
             </div>
@@ -149,9 +159,9 @@ const Contact = ({ initialMessage }) => {
             <div className="contact-block">
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <Clock size={16} style={{ color: 'var(--color-cyan)' }} />
-                <h3>Operational Cycles</h3>
+                <h3>Business Hours</h3>
               </div>
-              <p>Monday – Friday: 9:00 AM – 6:00 PM<br />Emergency support: 24/7</p>
+              <p>Contact us to arrange a consultation.</p>
             </div>
           </div>
         </div>
