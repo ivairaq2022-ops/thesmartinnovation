@@ -3,7 +3,6 @@ import CyberBackground from './components/CyberBackground';
 import Header from './components/Header';
 import Home from './components/Home';
 import Services from './components/Services';
-import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
       <main style={{ minHeight: 'calc(100vh - 220px)' }}>
         {currentPage === 'home' && <Home contactMessage={contactRequest?.message} setCurrentPage={setCurrentPage} />}
         {currentPage === 'services' && <Services navigateToContact={navigateToContact} />}
-        {currentPage === 'pricing' && <Pricing navigateToContact={navigateToContact} />}
       </main>
       <Footer setCurrentPage={setCurrentPage} navigateToContact={navigateToContact} />
     </>
