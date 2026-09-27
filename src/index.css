@@ -219,7 +219,7 @@ a {
 }
 
 .section-label::before {
-  content: '//';
+  content: '';
   font-weight: bold;
 }
 
@@ -540,7 +540,7 @@ a {
   letter-spacing: -1.5px;
   color: #fff;
   margin-bottom: 24px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .hero-desc {
@@ -606,7 +606,7 @@ a {
 }
 
 .stat-value::after {
-  content: '_';
+  content: '';
   color: var(--color-cyan);
   animation: blink 1s step-end infinite;
 }
@@ -792,6 +792,7 @@ a {
 
 .service-icon {
   font-size: 40px;
+  color: var(--color-cyan);
   margin-bottom: 24px;
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
 }
@@ -843,6 +844,20 @@ a {
 .service-card.featured ul li::before {
   background-color: var(--color-purple);
   box-shadow: 0 0 4px var(--color-purple);
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--color-cyan);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.service-link:hover {
+  color: var(--color-purple);
 }
 
 /* Courses Section */

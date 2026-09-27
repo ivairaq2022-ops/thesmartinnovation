@@ -1,110 +1,16 @@
-import { useState, useEffect } from 'react';
-import { Terminal, Shield, Cpu } from 'lucide-react';
-
-const Hero = ({ setCurrentPage }) => {
-  const [typedText, setTypedText] = useState('');
-  const fullText = 'IT Solutions · Cybersecurity · Artificial Intelligence';
-
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setTypedText(fullText.substring(0, index));
-      index++;
-      if (index > fullText.length) {
-        clearInterval(interval);
-      }
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleScrollTo = (e, id) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  return (
-    <section className="hero" id="home">
-      <div className="container hero-content">
-        <img
-          src="/images/Vertical-white.png"
-          alt="الابتكار الذكي — The Smart Innovation"
-          className="hero-logo"
-        />
-        
-        <div>
-          <p className="hero-tag">
-            <span style={{ color: '#28a8e0', marginRight: '6px' }}>&gt;</span>
-            {typedText}
-            <span style={{ animation: 'blink 1s step-end infinite', color: '#28a8e0' }}>|</span>
-          </p>
-        </div>
-
-        <h1 className="text-glow-cyan">
-          Secure, Intelligent Technology For Your Business
-        </h1>
-        
-        <p className="hero-desc">
-          The Smart Innovation delivers end-to-end IT services, enterprise-grade cybersecurity,
-          and practical AI that helps organizations grow with confidence.
-        </p>
-        
-        <div className="hero-actions">
-          <a
-            href="#services"
-            className="btn btn-primary"
-            onClick={(e) => { e.preventDefault(); setCurrentPage('services'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          >
-            Explore Services
-          </a>
-          <a
-            href="#contact"
-            className="btn btn-outline"
-            onClick={(e) => handleScrollTo(e, 'contact')}
-          >
-            Get in Touch
-          </a>
-        </div>
+const Hero = ({ setCurrentPage }) => (
+  <section className="hero" id="home">
+    <div className="container hero-content">
+      <img src="/images/Vertical-white.png" alt="الابتكار الذكي — The Smart Innovation" className="hero-logo" />
+      <p className="hero-tag">Technology solutions for critical operations</p>
+      <h1>Integrated technology for the modern enterprise</h1>
+      <p className="hero-desc">The Smart Innovation provides IT infrastructure, data centers, electronic gates, surveillance systems, cybersecurity, artificial intelligence, and custom software solutions for organizations and oil field operations.</p>
+      <div className="hero-actions">
+        <a href="#services" className="btn btn-primary" onClick={(e) => { e.preventDefault(); setCurrentPage('services'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Explore Our Services</a>
+        <a href="#contact" className="btn btn-outline" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>Contact Us</a>
       </div>
-
-      <div className="hero-stats container">
-        <div className="stat">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-            <Shield size={20} style={{ color: '#28a8e0', opacity: 0.8 }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(40, 168, 224, 0.4)' }}>LOG: ACTIVE</span>
-          </div>
-          <span className="stat-value">24/7</span>
-          <span className="stat-label">Security monitoring</span>
-        </div>
-
-        <div className="stat" style={{ borderImage: 'linear-gradient(to right, #76c9e8, transparent) 1' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-            <Cpu size={20} style={{ color: '#76c9e8', opacity: 0.8 }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(118, 201, 232, 0.4)' }}>NODE: SYNC</span>
-          </div>
-          <span className="stat-value" style={{ textShadow: '0 0 10px var(--color-purple-glow)' }}>AI-POWERED</span>
-          <span className="stat-label">Driven insights</span>
-        </div>
-
-        <div className="stat">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-            <Terminal size={20} style={{ color: '#28a8e0', opacity: 0.8 }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(40, 168, 224, 0.4)' }}>SYS: OPTIMAL</span>
-          </div>
-          <span className="stat-value">100%</span>
-          <span className="stat-label">Client-focused</span>
-        </div>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Hero;
