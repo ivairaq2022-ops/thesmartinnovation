@@ -51,7 +51,7 @@ const Services = ({ navigateToContact }) => {
                   background: service.featured ? 'var(--color-purple-dim)' : 'var(--color-cyan-dim)',
                   padding: '2px 8px',
                   borderRadius: '10px',
-                  border: `1px solid ${service.featured ? 'rgba(189,0,255,0.2)' : 'rgba(0,240,255,0.2)'}`
+                  border: `1px solid ${service.featured ? 'rgba(118,201,232,0.2)' : 'rgba(40,168,224,0.2)'}`
                 }}>
                   {service.featured ? 'CRITICAL_SHIELD' : 'GRID_CORE'}
                 </span>

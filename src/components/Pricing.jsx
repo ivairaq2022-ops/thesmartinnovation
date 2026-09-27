@@ -219,8 +219,8 @@ const Pricing = ({ navigateToContact }) => {
 
         {/* Dynamic Calculator Widget */}
         <div style={{
-          background: 'rgba(9, 12, 21, 0.6)',
-          border: '1px solid rgba(0, 240, 255, 0.15)',
+          background: 'rgba(16, 26, 34, 0.6)',
+          border: '1px solid rgba(40, 168, 224, 0.15)',
           padding: '40px',
           borderRadius: '6px',
           marginBottom: '80px',
@@ -235,7 +235,7 @@ const Pricing = ({ navigateToContact }) => {
             color: 'var(--color-cyan)',
             background: 'var(--bg-deep)',
             padding: '0 8px',
-            border: '1px solid rgba(0, 240, 255, 0.2)'
+            border: '1px solid rgba(40, 168, 224, 0.2)'
           }}>
             SYSTEM_WIDGET: INTEGRITY_CALCULATOR_v1.0
           </div>
@@ -288,8 +288,8 @@ const Pricing = ({ navigateToContact }) => {
             </div>
 
             <div style={{
-              background: '#030509',
-              border: '1px solid rgba(189, 0, 255, 0.2)',
+              background: '#0d171f',
+              border: '1px solid rgba(118, 201, 232, 0.2)',
               padding: '24px',
               borderRadius: '4px',
               textAlign: 'center',
@@ -335,7 +335,7 @@ const Pricing = ({ navigateToContact }) => {
                 <div
                   key={index}
                   style={{
-                    background: 'rgba(9, 12, 21, 0.4)',
+                    background: 'rgba(16, 26, 34, 0.4)',
                     border: `1px solid ${isOpen ? 'var(--color-cyan)' : 'rgba(255,255,255,0.05)'}`,
                     borderRadius: '4px',
                     overflow: 'hidden',
@@ -369,9 +369,9 @@ const Pricing = ({ navigateToContact }) => {
                       padding: '0 24px 20px',
                       color: 'var(--text-muted)',
                       lineHeight: '1.6',
-                      borderTop: '1px solid rgba(0, 240, 255, 0.1)',
+                      borderTop: '1px solid rgba(40, 168, 224, 0.1)',
                       paddingTop: '16px',
-                      background: '#04060b',
+                      background: '#0d1821',
                       fontFamily: 'var(--font-mono)',
                       fontSize: '12px'
                     }}>
