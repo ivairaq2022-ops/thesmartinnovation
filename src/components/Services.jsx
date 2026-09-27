@@ -1,95 +1,37 @@
-import { Monitor, ShieldCheck, Cpu, ArrowRight } from 'lucide-react';
+import { ArrowRight, BrainCircuit, Camera, Cable, Code2, Database, DoorOpen, ShieldCheck, Wifi } from 'lucide-react';
 
-const Services = ({ navigateToContact }) => {
-  const services = [
-    {
-      id: 'it',
-      icon: <Monitor size={36} className="text-glow-cyan" style={{ color: 'var(--color-cyan)' }} />,
-      title: 'IT Solutions',
-      desc: 'Network design, cloud migration, help desk, system integration, and managed IT so your operations run smoothly day and night.',
-      features: ['Infrastructure & cloud', 'Managed services', 'Digital workplace'],
-      featured: false
-    },
-    {
-      id: 'security',
-      icon: <ShieldCheck size={36} className="text-glow-purple" style={{ color: 'var(--color-purple)' }} />,
-      title: 'Cybersecurity',
-      desc: 'Protect your data, users, and reputation with layered defense, monitoring, incident response, and security awareness programs.',
-      features: ['Threat detection & response', 'Penetration testing', 'Compliance & governance'],
-      featured: true
-    },
-    {
-      id: 'ai',
-      icon: <Cpu size={36} className="text-glow-cyan" style={{ color: 'var(--color-cyan)' }} />,
-      title: 'Artificial Intelligence',
-      desc: 'Deploy AI that matters — automation, analytics, chatbots, and custom models built responsibly and integrated with your existing systems.',
-      features: ['Process automation', 'Predictive analytics', 'AI strategy & integration'],
-      featured: false
-    }
-  ];
+const services = [
+  { icon: <DoorOpen size={32} />, title: 'Electronic Gates & Access Control', desc: 'Electronic gate systems and access control solutions for facilities, offices, and operational sites.', features: ['Entry and exit systems', 'Access control integration', 'Site security planning'] },
+  { icon: <Database size={32} />, title: 'Data Centers & Server Infrastructure', desc: 'Design and implementation of data center and server environments to support business applications and critical operations.', features: ['Server and storage infrastructure', 'Virtualization and backup', 'Systems integration'] },
+  { icon: <Camera size={32} />, title: 'CCTV & Surveillance', desc: 'Video surveillance and monitoring systems designed around the needs of commercial and industrial sites.', features: ['Camera system design', 'Recording and monitoring', 'Integration with access control'] },
+  { icon: <Cable size={32} />, title: 'IT Infrastructure & Fiber Optics', desc: 'Structured cabling, fiber optic connectivity, and the network infrastructure that connects people, systems, and sites.', features: ['Fiber optic networks', 'Structured cabling', 'LAN and WAN design'] },
+  { icon: <Wifi size={32} />, title: 'Wireless Connectivity', desc: 'Wireless networks and site connectivity for offices, facilities, and remote operational locations.', features: ['Wireless network design', 'Site-to-site connectivity', 'Network deployment'] },
+  { icon: <ShieldCheck size={32} />, title: 'Cybersecurity', desc: 'Security solutions to help organizations protect their networks, systems, data, and users.', features: ['Security assessment', 'Network and endpoint protection', 'Monitoring and response'] },
+  { icon: <BrainCircuit size={32} />, title: 'AI Solutions', desc: 'Practical artificial intelligence solutions for process automation, data analysis, and decision support.', features: ['Workflow automation', 'Data analytics', 'AI integration'] },
+  { icon: <Code2 size={32} />, title: 'Software & Oil Field Systems', desc: 'Custom software development and systems integration for enterprise processes and oil field operations.', features: ['Custom applications', 'Operational dashboards', 'Oil field system integration'] }
+];
 
-  return (
-    <section className="section section-alt" id="services">
-      <div className="container">
-        <div className="section-header">
-          <span className="section-label">Our Services</span>
-          <h2>What we do for you</h2>
-        </div>
-
-        <div className="services-grid">
-          {services.map((service) => (
-            <article
-              key={service.id}
-              className={`service-card ${service.featured ? 'featured' : ''}`}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div className="service-icon">{service.icon}</div>
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '9px',
-                  color: service.featured ? 'var(--color-purple)' : 'var(--color-cyan)',
-                  background: service.featured ? 'var(--color-purple-dim)' : 'var(--color-cyan-dim)',
-                  padding: '2px 8px',
-                  borderRadius: '10px',
-                  border: `1px solid ${service.featured ? 'rgba(118,201,232,0.2)' : 'rgba(40,168,224,0.2)'}`
-                }}>
-                  {service.featured ? 'CRITICAL_SHIELD' : 'GRID_CORE'}
-                </span>
-              </div>
-              
-              <h3>{service.title}</h3>
-              <p>{service.desc}</p>
-              
-              <ul>
-                {service.features.map((feature, i) => (
-                  <li key={i}>{feature}</li>
-                ))}
-              </ul>
-
-              <a href="#contact" style={{
-                marginTop: '24px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                color: service.featured ? 'var(--color-purple)' : 'var(--color-cyan)',
-                cursor: 'pointer',
-                opacity: 0.8,
-                transition: 'opacity 0.2s'
-              }}
-              className="service-link"
-              onClick={(e) => { e.preventDefault(); navigateToContact(`I would like to learn more about ${service.title}.`); }}
-              >
-                <span>REQUEST DETAILS</span>
-                <ArrowRight size={12} />
-              </a>
-            </article>
-          ))}
-        </div>
+const Services = ({ navigateToContact }) => (
+  <section className="section section-alt" id="services">
+    <div className="container">
+      <div className="section-header">
+        <span className="section-label">Our Services</span>
+        <h2>Solutions for infrastructure, security, and operations</h2>
+        <p>From physical infrastructure to software and AI, we help organizations plan and implement technology suited to their requirements.</p>
       </div>
-    </section>
-  );
-};
+      <div className="services-grid">
+        {services.map((service) => (
+          <article className="service-card" key={service.title}>
+            <div className="service-icon" aria-hidden="true">{service.icon}</div>
+            <h3>{service.title}</h3>
+            <p>{service.desc}</p>
+            <ul>{service.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+            <a className="service-link" href="#contact" onClick={(e) => { e.preventDefault(); navigateToContact(`I would like to learn more about ${service.title}.`); }}>Request details <ArrowRight size={16} /></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Services;
