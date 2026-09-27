@@ -34,7 +34,6 @@ const Footer = ({ setCurrentPage, navigateToContact }) => {
         <nav className="footer-nav">
           <a href="#home" onClick={(e) => handleLinkClick(e, 'home')}>Home</a>
           <a href="#services" onClick={(e) => handleLinkClick(e, 'services')}>Our Services</a>
-          <a href="#pricing" onClick={(e) => handleLinkClick(e, 'pricing')}>Pricing Plans</a>
           <a href="#contact" onClick={(e) => { e.preventDefault(); navigateToContact(); }}>Contact</a>
         </nav>
 
@@ -42,9 +41,6 @@ const Footer = ({ setCurrentPage, navigateToContact }) => {
           &copy; {currentYear} The Smart Innovation. All rights reserved.
         </p>
 
-        <div className="footer-diagnostics">
-          SYSTEM_VER: 2.1.0 // CORE_ENGINE: VITE_REACT_19 // STYLING: VANILLA_CSS_CUSTOM // NODE: ACTIVE
-        </div>
       </div>
     </footer>
   );
